@@ -829,53 +829,56 @@
             }
         }
         
-       /* INTERSECTION ANIMATIONS - Fancier Versions */
-
-/* FADE UP WITH SCALE & BOUNCE */
-.fade-up {
+     .main-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 600;
+    color: var(--white);
+    position: relative;
+    margin-bottom: 24px;
     opacity: 0;
-    transform: translateY(60px) scale(0.95) rotateX(15deg);
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* springy effect */
+    animation: title-reveal 2s ease-out 0.5s forwards;
 }
 
-.fade-up.animated {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
+/* Spark/Ball Animation */
+.main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 20px;      /* size of the spark */
+    height: 20px;
+    background: var(--primary-red);
+    border-radius: 50%; /* makes it circular */
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.8), 0 0 24px rgba(220, 38, 38, 0.6);
+    transform: scale(0);
+    animation: spark-pop 1.5s ease-out 1s forwards, spark-bounce 1.5s ease-in-out 1s infinite;
 }
 
-/* SLIDE IN LEFT WITH ROTATION & SCALE */
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-80px) scale(0.9) rotateZ(-5deg);
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+/* Pop-in Effect */
+@keyframes spark-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.slide-in-left.animated {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotateZ(0deg);
-}
-
-/* SLIDE IN RIGHT WITH ROTATION & SCALE */
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(80px) scale(0.9) rotateZ(5deg);
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.slide-in-right.animated {
-    opacity: 1;
-    transform: translateX(0) scale(1) rotateZ(0deg);
-}
-
-/* OPTIONAL - PULSE EFFECT WHEN APPEARING */
-.animated {
-    animation: pulseAppear 0.6s ease-out forwards;
-}
-
-@keyframes pulseAppear {
-    0%   { transform: scale(0.95); }
-    50%  { transform: scale(1.05); }
-    100% { transform: scale(1); }
+/* Bounce Effect */
+@keyframes spark-bounce {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
 }
 
         /* LOADING ANIMATION */
