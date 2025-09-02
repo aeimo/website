@@ -829,40 +829,55 @@
             }
         }
         
-        /* INTERSECTION ANIMATIONS */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .fade-up.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .slide-in-left.animated {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .slide-in-right.animated {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
+       /* INTERSECTION ANIMATIONS - Fancier Versions */
+
+/* FADE UP WITH SCALE & BOUNCE */
+.fade-up {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95) rotateX(15deg);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* springy effect */
+}
+
+.fade-up.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* SLIDE IN LEFT WITH ROTATION & SCALE */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.9) rotateZ(-5deg);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide-in-left.animated {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotateZ(0deg);
+}
+
+/* SLIDE IN RIGHT WITH ROTATION & SCALE */
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(80px) scale(0.9) rotateZ(5deg);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide-in-right.animated {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotateZ(0deg);
+}
+
+/* OPTIONAL - PULSE EFFECT WHEN APPEARING */
+.animated {
+    animation: pulseAppear 0.6s ease-out forwards;
+}
+
+@keyframes pulseAppear {
+    0%   { transform: scale(0.95); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
         /* LOADING ANIMATION */
         .page-loader {
             position: fixed;
@@ -899,7 +914,7 @@
 <body>
     <!-- PAGE LOADER -->
     <div class="page-loader" id="pageLoader">
-        <div class="loader-text">BASE44</div>
+        <div class="loader-text">prepare for james...</div>
     </div>
     
     <!-- SCROLL PROGRESS -->
