@@ -880,6 +880,32 @@
         transform: translateY(-10px) scale(1.1);
     }
 }
+        .gear-bg {
+  position: fixed; /* stays on screen */
+  top: -100px; /* start slightly offscreen */
+  left: -100px;
+  width: 200px; /* size of gear */
+  height: 200px;
+  opacity: 0.05; /* very subtle */
+  z-index: 0; /* behind everything */
+  pointer-events: none; /* won’t block clicks */
+  animation: moveGear 60s linear infinite, rotateGear 30s linear infinite;
+}
+
+@keyframes moveGear {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(200vw, 200vh) rotate(360deg); /* moves across screen diagonally */
+  }
+}
+
+@keyframes rotateGear {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 
         /* LOADING ANIMATION */
         .page-loader {
