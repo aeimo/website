@@ -469,81 +469,110 @@
   background: var(--border-gray);
 }
 
-        /* PROJECTS SECTION */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-top: 40px;
-        }
-        
-        .project-card {
-            background: var(--medium-gray);
-            border: 1px solid var(--border-gray);
-            border-radius: 12px;
-            padding: 40px;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-            transform: translateY(50px) rotateX(10deg);
-            opacity: 0;
-            perspective: 1000px;
-        }
-        
-        .project-card.animated {
-            transform: translateY(0) rotateX(0deg);
-            opacity: 1;
-        }
-        
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.2s; }
-        .project-card:nth-child(3) { transition-delay: 0.3s; }
-        .project-card:nth-child(4) { transition-delay: 0.4s; }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
-            transition: left 0.8s ease;
-        }
-        
-        .project-card:hover::before {
-            left: 100%;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: var(--primary-red);
-            box-shadow: 0 25px 50px rgba(220, 38, 38, 0.2);
-        }
-        
-        .project-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--primary-red);
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-        
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 16px;
-            position: relative;
-        }
-        
-        .project-description {
-            font-size: 1rem;
-            color: var(--off-white);
-            opacity: 0.8;
-            line-height: 1.6;
-        }
+        //* PROJECTS SECTION */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.project-card {
+  perspective: 1200px; /* Needed for 3D flip */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* FRONT SIDE */
+.card-front {
+  background: var(--medium-gray);
+  border: 1px solid var(--border-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-front img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  border-bottom: 2px solid var(--border-gray);
+}
+
+.card-front h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* BACK SIDE */
+.card-back {
+  background: var(--dark-gray);
+  border: 1px solid var(--border-gray);
+  transform: rotateY(180deg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--off-white);
+}
+
+.card-back h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.card-back p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.card-back a {
+  align-self: flex-start;
+  padding: 10px 16px;
+  background: var(--primary-red);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.card-back a:hover {
+  background: #b91c1c; /* darker red */
+}
+
         
         /* CONTACT SECTION */
         .contact-grid {
@@ -988,68 +1017,93 @@
     <div class="separator"></div>
     
     <!-- PROJECTS SECTION -->
+<!-- PROJECTS SECTION -->
 <section id="projects" class="section">
   <div class="container">
     <h2 class="section-title fade-up">Projects</h2>
     <div class="projects-grid">
 
-      <!-- Project 1: KV Cache -->
+      <!-- Project 1 -->
       <div class="project-card">
-        <div class="project-number">01</div>
-        <h3 class="project-title">Globally Shared KV Cache for LLMs</h3>
-        <p class="project-description">
-          Designed a globally shared KV cache system for Large Language Models using 
-          <strong>Python, Golang, HuggingFace, LLaMA 2, AWS, and Redis</strong>. 
-          Achieved a <strong>3× cache-hit rate</strong>, <strong>30% lower memory usage</strong>, 
-          and <strong>2.8× faster inference latency</strong> compared to no-cache. 
-          Integrated semantic similarity with cosine distance and embeddings, reducing 
-          response times by ~900ms with minimal overhead. Evaluated on 1000+ real and synthetic queries.
-        </p>
+        <div class="card-inner">
+          <!-- Front -->
+          <div class="card-front">
+            <img src="KV.png" alt="KV Cache Project">
+            <h3 class="project-title">Globally Shared KV Cache for LLMs</h3>
+          </div>
+          <!-- Back -->
+          <div class="card-back">
+            <p>
+              Designed a globally shared KV cache system for Large Language Models using 
+              <strong>Python, Golang, HuggingFace, LLaMA 2, AWS, and Redis</strong>. 
+              Achieved <strong>3× cache-hit rate</strong> and <strong>30% lower memory usage</strong>.  
+            </p>
+            <a href="4675 project proposal.pdf" target="_blank" class="btn btn-primary">View PDF</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Project 2: Sano -->
+      <!-- Project 2 -->
       <div class="project-card">
-        <div class="project-number">02</div>
-        <h3 class="project-title">Sano – Gym Social Media App</h3>
-        <p class="project-description">
-          Built a full-stack fitness social media app with <strong>SwiftUI (frontend)</strong> and 
-          <strong>Flask (backend)</strong>. Integrated features like workout tracking, 
-          routine sharing, and community engagement. Launched at Georgia Tech, 
-          surpassing <strong>1,000 downloads in the first month</strong>, fostering 
-          motivation and accountability among users.
-        </p>
+        <div class="card-inner">
+          <!-- Front -->
+          <div class="card-front">
+            <img src="sano.png" alt="Sano App">
+            <h3 class="project-title">Sano – Gym Social Media App</h3>
+          </div>
+          <!-- Back -->
+          <div class="card-back">
+            <p>
+              Full-stack fitness social media app with <strong>SwiftUI & Flask</strong>.  
+              Launched at Georgia Tech with <strong>1,000+ downloads in first month</strong>.  
+            </p>
+            <a href="sano.pdf" target="_blank" class="btn btn-primary">View PDF</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Project 3: Contractly AI -->
+      <!-- Project 3 -->
       <div class="project-card">
-        <div class="project-number">03</div>
-        <h3 class="project-title">Contractly AI – HackGT</h3>
-        <p class="project-description">
-          Developed an AI-powered contract analysis tool with <strong>Python, Flask, React, 
-          MongoDB, and LangChain</strong>. Trained on 500+ contracts (NDAs, M&As, acquisitions). 
-          Built a Chrome Extension that automatically fetches privacy policies and 
-          rates them using <strong>GPT-3</strong>, improving accessibility and 
-          legal transparency for end-users.
-        </p>
+        <div class="card-inner">
+          <!-- Front -->
+          <div class="card-front">
+            <img src="contract.png" alt="Contractly AI">
+            <h3 class="project-title">Contractly AI – HackGT</h3>
+          </div>
+          <!-- Back -->
+          <div class="card-back">
+            <p>
+              AI-powered contract analysis with <strong>LangChain, GPT-3, Flask</strong>.  
+              Includes Chrome Extension for privacy policies.  
+            </p>
+            <a href="contractly.pdf" target="_blank" class="btn btn-primary">View PDF</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Project 4: ML Wafer Defect Detection -->
+      <!-- Project 4 -->
       <div class="project-card">
-        <div class="project-number">04</div>
-        <h3 class="project-title">Semiconductor Wafer Defect Detection (ML Project)</h3>
-        <p class="project-description">
-          Collaborated on a machine learning pipeline for defect detection using the 
-          <strong>WM-811K dataset</strong>. Implemented clustering (K-Means, DBSCAN), 
-          classification (Random Forest), and a <strong>CNN model achieving ~91% accuracy</strong>. 
-          Enhanced wafer defect recognition to reduce manual inspection time and improve 
-          semiconductor manufacturing yield. Authored visualizations, analysis, and 
-          final presentation materials.
-        </p>
+        <div class="card-inner">
+          <!-- Front -->
+          <div class="card-front">
+            <img src="wafer.png" alt="Wafer ML Project">
+            <h3 class="project-title">Semiconductor Wafer Defect Detection</h3>
+          </div>
+          <!-- Back -->
+          <div class="card-back">
+            <p>
+              ML pipeline using <strong>WM-811K dataset</strong>.  
+              CNN model reached ~91% accuracy, reducing inspection time.  
+            </p>
+            <a href="Spring2025_ML_Group57.pdf" target="_blank" class="btn btn-primary">View PDF</a>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
     
     <div class="separator"></div>
