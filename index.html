@@ -140,67 +140,88 @@
             z-index: -1;
             will-change: transform;
         }
-        
-        /* HEADER SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .main-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 600;
-            color: var(--white);
-            position: relative;
-            margin-bottom: 24px;
-            opacity: 0;
-            animation: title-reveal 2s ease-out 0.5s forwards;
-        }
-        
-        @keyframes title-reveal {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .main-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--primary-red);
-            animation: expand-line 1.5s ease-out 1s forwards;
-        }
-        
-        @keyframes expand-line {
-            to { width: 60px; }
-        }
-        
-        .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 400;
-            color: var(--off-white);
-            opacity: 0;
-            letter-spacing: 2px;
-            animation: subtitle-fade 1.5s ease-out 1.5s forwards;
-        }
-        
-        @keyframes subtitle-fade {
-            to { opacity: 0.8; }
-        }
+        /* HERO SECTION */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* center content vertically */
+  align-items: center;     /* center content horizontally */
+  text-align: left;
+  padding: 0 5%;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+/* Text Styling */
+.main-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 600;
+  color: var(--white);
+  position: relative;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: title-reveal 2s ease-out 0.5s forwards;
+}
+
+@keyframes title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--primary-red);
+  animation: expand-line 1.5s ease-out 1s forwards;
+}
+
+@keyframes expand-line {
+  to { width: 60px; }
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--off-white);
+  opacity: 0;
+  letter-spacing: 2px;
+  animation: subtitle-fade 1.5s ease-out 1.5s forwards;
+}
+
+@keyframes subtitle-fade {
+  to { opacity: 0.8; }
+}
+
+/* Image Styling */
+.hero-image img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 50%; /* makes it circular */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  animation: fade-in 2s ease-out 2s forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
         
         /* NAVIGATION */
         .nav {
