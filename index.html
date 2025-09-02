@@ -210,13 +210,15 @@
 
 /* Image Styling */
 .hero-image img {
-  max-width: 250px;
-  height: auto;
-  border-radius: 50%; /* makes it circular */
+  width: 250px;         /* force fixed width */
+  height: 250px;        /* force equal height */
+  object-fit: cover;    /* crop and maintain aspect ratio */
+  border-radius: 50%;   /* now this makes it a perfect circle */
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
   animation: fade-in 2s ease-out 2s forwards;
   opacity: 0;
 }
+
 
 @keyframes fade-in {
   to { opacity: 1; }
