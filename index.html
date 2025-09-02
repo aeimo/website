@@ -880,64 +880,7 @@
         transform: translateY(-10px) scale(1.1);
     }
 }
-   <!-- ================= PARALLAX GEARS ================= -->
-<!-- Add this at the top or bottom of your body -->
-<div class="gear" style="--size:200px; --top:10%; --left:5%; --speed:0.3;">
-  <img src="gear.png" alt="Gear" />
-</div>
-<div class="gear" style="--size:150px; --top:60%; --left:70%; --speed:0.6;">
-  <img src="gear.png" alt="Gear" />
-</div>
-<div class="gear" style="--size:100px; --top:30%; --left:40%; --speed:0.9;">
-  <img src="gear.png" alt="Gear" />
-</div>
-
-<style>
-  /* ================= PARALLAX GEARS ================= */
-  .gear {
-    position: fixed;
-    width: var(--size);
-    height: var(--size);
-    top: var(--top);
-    left: var(--left);
-    opacity: 0.1;          /* subtle background */
-    pointer-events: none;   /* ignore clicks */
-    z-index: 0;             /* behind content */
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    transition: transform 0.1s linear;
-  }
-
-  .gear img {
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
-<script>
-  // ================= PARALLAX SCROLL EFFECT =================
-  const gears = document.querySelectorAll('.gear');
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-
-    gears.forEach(gear => {
-      const speed = parseFloat(gear.style.getPropertyValue('--speed'));
-
-      // Diagonal movement
-      const xMove = scrollTop * speed * 0.5; // horizontal movement
-      const yMove = scrollTop * speed;       // vertical movement
-
-      // Slight scale effect
-      const scale = 1 + (scrollTop * speed * 0.0005);
-
-      // Rotation
-      const rotate = scrollTop * speed * 0.2;
-
-      gear.style.transform = `translate(${xMove}px, ${yMove}px) scale(${scale}) rotate(${rotate}deg)`;
-    });
-  });
-</script>
-
+ 
 
 
         /* LOADING ANIMATION */
