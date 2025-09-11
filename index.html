@@ -499,7 +499,8 @@
 
        /* PROJECTS SECTION */
 /* ================= PROJECTS SECTION ================= */
-/* ================= PROJECTS SECTION ================= *//* ================= PROJECTS SECTION ================= */
+/* ================= PROJECTS SECTION ================= */
+/* ================= PROJECTS SECTION ================= */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -508,89 +509,59 @@
 }
 
 .project-card {
-  perspective: 1200px; /* for 3D flip */
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 500px;           /* tall card like a portfolio project */
   border-radius: 12px;
   overflow: hidden;
+  background: var(--medium-gray);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-.project-card:hover .card-inner {
+.project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
-.card-front {
+/* Image on top */
+.project-card img {
   width: 100%;
-  height: 100%;
-  background-color: var(--medium-gray);
-  position: relative;
-}
-
-.card-front img {
-  width: 100%;
-  height: 100%;
+  height: 220px;       /* fixed image height */
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
+  display: block;
   transition: transform 0.5s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.project-card:hover .card-front img {
-  transform: scale(1.05); /* subtle zoom effect */
+.project-card:hover img {
+  transform: scale(1.05); /* subtle zoom */
 }
 
-/* Project title overlay */
-.card-front h3 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  margin: 0;
-  color: var(--white);
-  font-size: 1.3rem;
+/* Text content below image */
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
   font-weight: 600;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  background: rgba(0,0,0,0.3); /* subtle overlay for readability */
-  padding: 6px 12px;
-  border-radius: 6px;
+  color: var(--white);
 }
 
-/* BACK SIDE (optional for flip info) */
-.card-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-  background: var(--dark-gray);
-  color: var(--off-white);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 12px;
+.card-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.4;
+  margin-bottom: 12px;
 }
 
-.card-back p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.card-back a {
-  align-self: flex-start;
+.card-content a {
+  display: inline-block;
   padding: 8px 14px;
   background: var(--primary-red);
-  color: var(--white);
+  color: #fff;
   font-size: 0.85rem;
   font-weight: 500;
   border-radius: 6px;
@@ -598,7 +569,7 @@
   transition: background 0.3s ease;
 }
 
-.card-back a:hover {
+.card-content a:hover {
   background: #b91c1c;
 }
 
@@ -608,14 +579,8 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .card-inner {
-    height: 400px;
-  }
-  .card-front h3 {
-    font-size: 1.1rem;
-    bottom: 15px;
-    left: 15px;
-    padding: 4px 10px;
+  .project-card img {
+    height: 180px;
   }
 }
 
@@ -1075,7 +1040,7 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
     <div class="separator"></div>
     
     <!-- PROJECTS SECTION -->
-<!-- PROJECTS SECTION -->
+<!-- PROJECTS SECTION --><!-- ================= PROJECTS SECTION ================= -->
 <section id="projects" class="section">
   <div class="container">
     <h2 class="section-title fade-up">Projects</h2>
@@ -1083,78 +1048,56 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
 
       <!-- Project 1 -->
       <div class="project-card">
-        <div class="card-inner">
-          <!-- Front -->
-          <div class="card-front">
-            <img src="KV.png" alt="KV Cache Project">
-            <h3 class="project-title">Globally Shared KV Cache for LLMs</h3>
-          </div>
-          <!-- Back -->
-          <div class="card-back">
-            <p>
-              Designed a globally shared KV cache system for Large Language Models using <strong>Python, Golang, HuggingFace, LLaMA 2, AWS, and Redis</strong>. Achieved a <strong>3× cache-hit rate</strong>, <strong>30% lower memory usage</strong>, and <strong>2.8× faster inference latency</strong> compared to no-cache. Integrated semantic similarity with cosine distance and embeddings, reducing response times by ~900ms with minimal overhead. Evaluated on 1000+ real and synthetic queries.
-            </p>
-            <a href="4675 project proposal.pdf" target="_blank" class="btn btn-primary">View PDF</a>
-          </div>
+        <img src="KV.png" alt="KV Cache Project">
+        <div class="card-content">
+          <h3>Globally Shared KV Cache for LLMs</h3>
+          <p>
+            Designed a globally shared KV cache system for Large Language Models using <strong>Python, Golang, HuggingFace, LLaMA 2, AWS, and Redis</strong>. Achieved a <strong>3× cache-hit rate</strong>, <strong>30% lower memory usage</strong>, and <strong>2.8× faster inference latency</strong>.
+          </p>
+          <a href="4675 project proposal.pdf" target="_blank">View PDF</a>
         </div>
       </div>
 
       <!-- Project 2 -->
       <div class="project-card">
-        <div class="card-inner">
-          <!-- Front -->
-          <div class="card-front">
-            <img src="sano.png" alt="Sano App">
-            <h3 class="project-title">Sano – Gym Social Media App</h3>
-          </div>
-          <!-- Back -->
-          <div class="card-back">
-            <p>
-              Built a full-stack fitness social media app with <strong>SwiftUI (frontend)</strong> and <strong>Flask (backend)</strong>. Integrated features like workout tracking, routine sharing, and community engagement. Launched at Georgia Tech, surpassing <strong>1,000 downloads in the first month</strong>, fostering motivation and accountability among users.
-            </p>
-            <a href="sanoScreen.png" target="_blank" class="btn btn-primary">View PDF</a>
-          </div>
+        <img src="sano.png" alt="Sano App">
+        <div class="card-content">
+          <h3>Sano – Gym Social Media App</h3>
+          <p>
+            Full-stack fitness social media app with <strong>SwiftUI</strong> and <strong>Flask</strong>. Integrated features like workout tracking, routine sharing, and community engagement. Surpassed <strong>1,000 downloads in the first month</strong>.
+          </p>
+          <a href="sanoScreen.png" target="_blank">View PDF</a>
         </div>
       </div>
 
       <!-- Project 3 -->
       <div class="project-card">
-        <div class="card-inner">
-          <!-- Front -->
-          <div class="card-front">
-            <img src="contract.png" alt="Contractly AI">
-            <h3 class="project-title">Contractly AI – HackGT</h3>
-          </div>
-          <!-- Back -->
-          <div class="card-back">
-            <p>
-              Developed an AI-powered contract analysis tool with <strong>Python, Flask, React, MongoDB, and LangChain</strong>. Trained on 500+ contracts (NDAs, M&As, acquisitions). Built a Chrome Extension that automatically fetches privacy policies and rates them using <strong>GPT-3</strong>, improving accessibility and legal transparency for end-users. 
-            </p>
-            <a href="https://devpost.com/software/contractly" target="_blank" class="btn btn-primary">View Project</a>          </div>
+        <img src="contract.png" alt="Contractly AI">
+        <div class="card-content">
+          <h3>Contractly AI – HackGT</h3>
+          <p>
+            Developed an AI-powered contract analysis tool using <strong>Python, Flask, React, MongoDB, LangChain</strong>. Built a Chrome Extension that automatically fetches and rates privacy policies using <strong>GPT-3</strong>.
+          </p>
+          <a href="https://devpost.com/software/contractly" target="_blank">View Project</a>
         </div>
       </div>
 
       <!-- Project 4 -->
       <div class="project-card">
-        <div class="card-inner">
-          <!-- Front -->
-          <div class="card-front">
-            <img src="wafer.png" alt="Wafer ML Project">
-            <h3 class="project-title">Semiconductor Wafer Defect Detection</h3>
-          </div>
-          <!-- Back -->
-          <div class="card-back">
-            <p>
-             Collaborated on a machine learning pipeline for defect detection using the <strong>WM-811K dataset</strong>. Implemented clustering (K-Means, DBSCAN), classification (Random Forest), and a <strong>CNN model achieving ~91% accuracy</strong>. Enhanced wafer defect recognition to reduce manual inspection time and improve semiconductor manufacturing yield. Authored visualizations, analysis, and final presentation materials. 
-            </p>
-            <a href="Spring2025_ML_Group57.pdf" target="_blank" class="btn btn-primary">View PDF</a>
-          </div>
+        <img src="wafer.png" alt="Wafer ML Project">
+        <div class="card-content">
+          <h3>Semiconductor Wafer Defect Detection</h3>
+          <p>
+            Collaborated on a machine learning pipeline for defect detection using the <strong>WM-811K dataset</strong>. Achieved ~91% accuracy with CNN models and improved inspection efficiency.
+          </p>
+          <a href="Spring2025_ML_Group57.pdf" target="_blank">View PDF</a>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
 
 
     
