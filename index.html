@@ -183,17 +183,18 @@
   color: var(--white);
   margin: 0 0 12px 0;
   position: relative;
+  display: inline-block;      /* required for width animation */
   overflow: hidden;           /* hide overflowing text */
-  white-space: nowrap;        /* keep text on one line */
-  border-right: 3px solid var(--white); /* blinking cursor */
-  width: 0;                   /* start with no width */
-  animation: typing 3s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+  white-space: nowrap;        /* prevent wrapping */
+  border-right: 3px solid var(--white); /* cursor */
+  width: 0ch;                 /* start with 0 characters visible */
+  animation: typing 3s steps(25, end) forwards, blink-caret 0.75s step-end infinite;
 }
 
 /* Typewriter animation */
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from { width: 0ch; }
+  to { width: 25ch; }  /* number of characters in your h1 */
 }
 
 /* Blinking cursor */
