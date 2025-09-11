@@ -142,21 +142,71 @@
             will-change: transform;
         }
         /* HERO SECTION */
+/* HERO LAYOUT */
 .hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center; /* center content vertically */
-  align-items: center;     /* center content horizontally */
-  text-align: left;
-  padding: 0 5%;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.hero-content {
+.hero-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 50px;
-  flex-wrap: wrap; /* allows stacking on small screens */
+  gap: 2rem;
 }
+
+.hero-image {
+  flex: 1 1 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.hero-text {
+  flex: 2 1 500px;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.hero-text .chinese {
+  color: #777;
+  font-weight: normal;
+}
+
+.hero-text .subtitle {
+  color: #c00;
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.hero-text p {
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.hero-tags {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #c00;
+}
+
+.hero-links a {
+  margin-right: 0.8rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
 
 /* Text Styling */
 .main-title {
