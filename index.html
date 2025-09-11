@@ -176,32 +176,7 @@
 }
 
 /* ================= HERO TEXT ================= */
-.hero-text h1 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 600;
-  color: var(--white);
-  margin: 0 0 12px 0;
-  position: relative;
-  overflow: hidden;           /* hide overflowing text */
-  white-space: nowrap;        /* keep text on one line */
-  border-right: 3px solid var(--white); /* blinking cursor */
-  width: 0;                   /* start with no width */
-  animation: typing 3s steps(0, end) forwards, blink-caret 0.75s step-end infinite;
-}
-
-/* Typewriter animation */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* Blinking cursor */
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--white); }
-}
-
+.hero-text h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--white); margin: 0 0 12px 0; position: relative; opacity: 0; animation: title-reveal 2s ease-out 0.5s forwards; }
 
 .hero-text .chinese {
   color: #777;
@@ -219,9 +194,12 @@
 }
 
 .hero-text p {
-  line-height: 1.6;
-  margin: 1rem 0;
-  color: var(--off-white);
+  font-family: 'JetBrains Mono', monospace; /* matches headings */
+  font-size: clamp(0.95rem, 1vw, 1.1rem);  /* readable and slightly techy */
+  line-height: 1.7;                         /* airy, modern spacing */
+  margin: 0.8rem 0;
+  color: rgba(255, 255, 255, 0.85);         /* softer off-white for contrast */
+  letter-spacing: 0.5px;                     /* subtle spacing for clarity */
 }
 
 .hero-tags {
