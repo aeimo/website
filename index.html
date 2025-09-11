@@ -499,10 +499,11 @@
 
        /* PROJECTS SECTION */
 /* ================= PROJECTS SECTION ================= */
+/* ================= PROJECTS SECTION ================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive & flexible */
-  gap: 40px; /* tighter, cleaner spacing */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* slightly wider min width */
+  gap: 40px; 
   margin-top: 60px;
 }
 
@@ -513,7 +514,7 @@
 .card-inner {
   position: relative;
   width: 100%;
-  height: 400px; /* slightly smaller and sleeker */
+  height: 500px; /* taller card */
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
   cursor: pointer;
@@ -532,10 +533,10 @@
   border-radius: 12px;
   overflow: hidden;
   backface-visibility: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* softer shadow */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end; /* keep text at bottom */
   align-items: center;
 }
 
@@ -544,25 +545,26 @@
   background: var(--medium-gray);
   border: 1px solid var(--border-gray);
   text-align: center;
-  padding: 20px;
+  padding: 0; /* remove padding so image fills most of card */
 }
 
-
 .card-front img {
-  width: 100%;               /* fill width of card */
-  height: 50%;               /* take up half the card height */
-  border-radius: 8px;        /* slight rounding */
-  object-fit: cover;         /* scale and crop neatly */
-  object-position: center;   /* center the image */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  margin-bottom: 16px;
+  width: 100%;
+  height: 100%;       /* full card height */
+  object-fit: cover;  /* scale image to cover card */
+  object-position: center;
+  border-radius: 12px;
 }
 
 .card-front h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
   color: var(--white);
-  margin: 8px 0 0 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5); /* makes text readable on image */
+  margin: 0;
 }
 
 /* BACK SIDE */
@@ -578,7 +580,7 @@
 }
 
 .card-back p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 12px;
   color: rgba(255,255,255,0.85);
@@ -602,17 +604,19 @@
 /* Responsive adjustments */
 @media (max-width: 900px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* stack vertically */
+    grid-template-columns: 1fr; 
     gap: 30px;
   }
   .card-inner {
-    height: 260px;
+    height: 400px;
   }
-  .card-front img {
-    width: 140px;
-    height: 140px;
+  .card-front h3 {
+    font-size: 1.1rem;
+    bottom: 15px;
+    left: 15px;
   }
 }
+
 
 
         
