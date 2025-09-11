@@ -496,10 +496,6 @@
 .btn-secondary:hover {
   background: var(--border-gray);
 }
-
-       /* PROJECTS SECTION */
-/* ================= PROJECTS SECTION ================= */
-/* ================= PROJECTS SECTION ================= */
 /* ================= PROJECTS SECTION ================= */
 .projects-grid {
   display: grid;
@@ -509,12 +505,16 @@
 }
 
 .project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ensures button at bottom */
   border-radius: 12px;
   overflow: hidden;
   background: var(--medium-gray);
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
+  height: 100%; /* ensures uniform height in grid */
 }
 
 .project-card:hover {
@@ -540,6 +540,9 @@
 /* Text content below image */
 .card-content {
   padding: 16px;
+  flex-grow: 1; /* takes up remaining space so button stays bottom */
+  display: flex;
+  flex-direction: column;
 }
 
 .card-content h3 {
@@ -550,13 +553,14 @@
 }
 
 .card-content p {
-  margin: 0;
+  margin: 0 0 12px 0;
   font-size: 0.9rem;
   color: rgba(255,255,255,0.85);
   line-height: 1.4;
-  margin-bottom: 12px;
+  flex-grow: 1; /* pushes button to bottom */
 }
 
+/* Button at bottom */
 .card-content a {
   display: inline-block;
   padding: 8px 14px;
@@ -567,6 +571,7 @@
   border-radius: 6px;
   text-decoration: none;
   transition: background 0.3s ease;
+  margin-top: auto; /* ensures it sticks to bottom */
 }
 
 .card-content a:hover {
@@ -583,7 +588,6 @@
     height: 180px;
   }
 }
-
 
         
         /* CONTACT SECTION */
