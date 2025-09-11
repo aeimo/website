@@ -141,8 +141,7 @@
             z-index: -1;
             will-change: transform;
         }
-        /* HERO SECTION */
-/* HERO LAYOUT */
+        /* HERO SECTION *//* ================= HERO LAYOUT ================= */
 .hero {
   padding: 4rem 2rem;
   max-width: 1100px;
@@ -163,20 +162,29 @@
 }
 
 .hero-image img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 250px;         /* fixed width */
+  height: 250px;        /* equal height */
+  object-fit: cover;    /* keeps proportions, crops edges */
+  border-radius: 50%;   /* perfect circle */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  animation: fade-in 2s ease-out 2s forwards;
+  opacity: 0;
 }
 
 .hero-text {
   flex: 2 1 500px;
 }
 
+/* ================= HERO TEXT ================= */
 .hero-text h1 {
-  font-size: 2rem;
-  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 12px 0;
+  position: relative;
+  opacity: 0;
+  animation: title-reveal 2s ease-out 0.5s forwards;
 }
 
 .hero-text .chinese {
@@ -185,41 +193,40 @@
 }
 
 .hero-text .subtitle {
-  color: #c00;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--off-white);
+  opacity: 0;
+  letter-spacing: 2px;
+  animation: subtitle-fade 1.5s ease-out 1.5s forwards;
   margin-top: 0.3rem;
-  font-size: 1.1rem;
 }
 
 .hero-text p {
   line-height: 1.6;
   margin: 1rem 0;
+  color: var(--off-white);
 }
 
 .hero-tags {
   margin-top: 1rem;
   font-weight: bold;
-  color: #c00;
+  color: var(--primary-red);
 }
 
 .hero-links a {
   margin-right: 0.8rem;
   font-size: 1.4rem;
   text-decoration: none;
-}
-
-
-/* Text Styling */
-.main-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: 600;
   color: var(--white);
-  position: relative;
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: title-reveal 2s ease-out 0.5s forwards;
+  transition: color 0.3s;
 }
 
+.hero-links a:hover {
+  color: var(--primary-red);
+}
+
+/* ================= ANIMATIONS ================= */
 @keyframes title-reveal {
   0% {
     opacity: 0;
@@ -231,7 +238,11 @@
   }
 }
 
-.main-title::after {
+@keyframes expand-line {
+  to { width: 60px; }
+}
+
+.hero-text h1::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -242,40 +253,14 @@
   animation: expand-line 1.5s ease-out 1s forwards;
 }
 
-@keyframes expand-line {
-  to { width: 60px; }
-}
-
-.subtitle {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 400;
-  color: var(--off-white);
-  opacity: 0;
-  letter-spacing: 2px;
-  animation: subtitle-fade 1.5s ease-out 1.5s forwards;
-}
-
 @keyframes subtitle-fade {
   to { opacity: 0.8; }
 }
-
-/* Image Styling */
-.hero-image img {
-  width: 250px;         /* force fixed width */
-  height: 250px;        /* force equal height */
-  object-fit: cover;    /* crop and maintain aspect ratio */
-  border-radius: 50%;   /* now this makes it a perfect circle */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-  animation: fade-in 2s ease-out 2s forwards;
-  opacity: 0;
-}
-
 
 @keyframes fade-in {
   to { opacity: 1; }
 }
 
-        
         /* NAVIGATION */
         .nav {
             position: fixed;
