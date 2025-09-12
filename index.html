@@ -241,76 +241,63 @@
 .hero-links a:hover {
   color: var(--primary-red);
 }
-
+/* Container for the updates section */
 .updates {
-  max-width: 700px;     /* optional: limit width for readability */
-  margin: 4rem 0;       /* top & bottom only */
-  padding-left: 2rem;   /* align content a bit from edge */
-  text-align: left;     /* force left alignment */
+  max-width: 800px;
+  margin: 4rem auto;
+  padding-left: 2rem;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-
-.updates .section-title {
-  font-size: 1.4rem;
+/* Title styling */
+.updates h2 {
+  font-size: 2.4rem;
   font-weight: 600;
   color: var(--white);
-  margin-bottom: 1.5rem;
-  text-transform: lowercase;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
+/* List styling */
 .updates-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   gap: 1.5rem;
-  align-items: flex-start;  /* make sure items are left-aligned */
+  align-items: center;
 }
 
-
+/* Individual update styling */
 .update {
-  position: relative;
-  padding-left: 1.2rem;
-  display: none;      /* hidden by default, JS will show first 3 */
-}
-.update::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0.25rem;
-  color: var(--primary-red);
-  font-size: 1rem;
+  display: contents;
 }
 
+/* Date styling */
 .update .date {
-  display: block;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 0.2rem;
-  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  margin-right: 1rem;
 }
 
+/* Content styling */
 .update p {
   margin: 0;
-  color: rgba(255,255,255,0.9);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
   line-height: 1.6;
 }
 
+/* Show more link styling */
 .updates-link {
   display: inline-block;
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
+  margin-top: 2.5rem;
+  font-size: 1rem;
   color: var(--primary-red);
-  background: none;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
   font-weight: 500;
-  padding: 0;
-  text-align: left;
 }
 
 .updates-link:hover {
