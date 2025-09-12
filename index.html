@@ -242,55 +242,49 @@
   color: var(--primary-red);
 }
 
-
-/* --- Updates Section --- */
-#updates {
+/* UPDATES SECTION */
+.updates {
   max-width: 650px;
-  margin: 5rem auto;
+  margin: 4rem auto;
   padding: 0 1rem;
-  font-family: "Inter", sans-serif;
-  text-align: left; /* left-align everything */
+  text-align: left; /* forces left alignment */
 }
 
-#updates h2 {
+.updates .section-title {
   font-size: 1.4rem;
   font-weight: 600;
+  color: var(--white);
   margin-bottom: 1.5rem;
   text-transform: lowercase;
   border-bottom: 1px solid rgba(255,255,255,0.15);
   padding-bottom: 0.5rem;
-  color: var(--white);
 }
 
-#updates ul {
+.updates-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
-#updates li {
+.update {
   position: relative;
   padding-left: 1.2rem;
   display: none; /* hidden by default */
 }
 
-#updates li.visible {
-  display: block; /* only first few show */
-}
-
-#updates li::before {
+.update::before {
   content: "•";
   position: absolute;
   left: 0;
-  top: 0.2rem;
+  top: 0.25rem;
   color: var(--primary-red);
   font-size: 1rem;
 }
 
-#updates .date {
+.update .date {
   display: block;
   font-size: 0.85rem;
   color: rgba(255,255,255,0.55);
@@ -298,25 +292,27 @@
   font-weight: 500;
 }
 
-#updates p {
+.update p {
   margin: 0;
   color: rgba(255,255,255,0.9);
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-#show-more {
+.updates-link {
+  display: inline-block;
   margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--primary-red);
   background: none;
   border: none;
-  color: var(--primary-red);
-  font-size: 0.95rem;
-  font-weight: 500;
   cursor: pointer;
+  font-weight: 500;
+  padding: 0;
   text-align: left;
 }
 
-#show-more:hover {
+.updates-link:hover {
   text-decoration: underline;
 }
 
@@ -1028,41 +1024,41 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
     </div>
   </div>
 </main>
-
-<section id="updates">
-  <h2>updates</h2>
-  <ul id="updates-list">
-    <li>
+<section class="updates">
+  <h2 class="section-title">updates</h2>
+  <ul class="updates-list">
+    <li class="update">
       <span class="date">May 2025</span>
       <p>Started my final internship 🎉 — joining <strong>Amazon</strong> in Sunnyvale to work on the <em>Items & Offers Platform</em>.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">Nov 2023</span>
       <p>Dove into part-time work at <strong>Transformation CONTINUUM</strong> 🚀 building a <em>Google Cloud Sales Training Tool</em>.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">Jan 2023</span>
       <p>Joined Georgia Tech’s <strong>LIDAR Lab 🤖</strong> — working on reinforcement learning pipelines & bipedal navigation research.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">Jun 2022</span>
       <p>Spent my summer at <strong>Berry College</strong> 🧮 exploring continued fractions & fractals in math research.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">May 2021</span>
       <p>Did my first biology research 👩‍🔬 — summer at <strong>Emory</strong>’s Liang Lab on RSV minigenomes.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">May 2021</span>
       <p>Started at the <strong>Neural Data Science Lab</strong> 🧠 — applying ML to detect Alzheimer’s in mouse brains.</p>
     </li>
-    <li>
+    <li class="update">
       <span class="date">Aug 2020</span>
       <p>Started university at <strong>Georgia Tech</strong> 🐝 pursuing HCI + ML!</p>
     </li>
   </ul>
-  <button id="show-more">show more</button>
+  <button id="show-more" class="updates-link">show more</button>
 </section>
+
 
 
     
@@ -1316,6 +1312,27 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
+        document.addEventListener("DOMContentLoaded", () => {
+  const updates = document.querySelectorAll(".updates-list .update");
+  const showMoreBtn = document.getElementById("show-more");
+  let visibleCount = 3;
+
+  // Show first 3
+  updates.forEach((item, index) => {
+    if (index < visibleCount) item.style.display = "block";
+  });
+
+  showMoreBtn.addEventListener("click", () => {
+    visibleCount += 3;
+    updates.forEach((item, index) => {
+      if (index < visibleCount) item.style.display = "block";
+    });
+    if (visibleCount >= updates.length) {
+      showMoreBtn.style.display = "none"; // hide button when done
+    }
+  });
+});
+
         
         const slideObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
