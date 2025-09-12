@@ -242,6 +242,61 @@
   color: var(--primary-red);
 }
 
+        .updates-section {
+  margin: 80px 0;
+  color: var(--off-white);
+}
+
+.updates-section .section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.update-item {
+  background: var(--medium-gray);
+  border-left: 4px solid var(--primary-red);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+}
+
+.update-date {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.update-item p {
+  margin: 0;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.btn.view-all-updates {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary-red);
+  color: var(--white);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn.view-all-updates:hover {
+  background: #b91c1c; /* or adjust to match your palette */
+}
+
 /* ================= ANIMATIONS ================= */
 @keyframes title-reveal {
   0% {
@@ -948,6 +1003,40 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
     </div>
   </div>
 </main>
+
+    <section id="updates" class="section updates-section">
+  <div class="container">
+    <h2 class="section-title">Updates</h2>
+    <div class="updates-list">
+
+      <div class="update-item">
+        <span class="update-date">Sep 5, 2025</span>
+        <p>
+          Published a post about “Deploying the LLM Privacy Report” on LinkedIn to share findings on data handling practices.
+        </p>
+      </div>
+
+      <div class="update-item">
+        <span class="update-date">Aug 20, 2025</span>
+        <p>
+          Shared initial progress of the “Web Crawler with Keyword Count Tracking” project with data visualizations.
+        </p>
+      </div>
+
+      <div class="update-item">
+        <span class="update-date">Jul 30, 2025</span>
+        <p>
+          Announced new version of Sano gym app with improved UI and community features.
+        </p>
+      </div>
+
+      <!-- more updates... -->
+
+    </div>
+    <a href="https://www.linkedin.com/in/yourusername/" class="btn view-all-updates" target="_blank">View All Updates on LinkedIn</a>
+  </div>
+</section>
+
     
     <!-- PROJECTS SECTION -->
 <!-- PROJECTS SECTION --><!-- ================= PROJECTS SECTION ================= -->
