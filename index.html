@@ -242,60 +242,68 @@
   color: var(--primary-red);
 }
 
-        .updates-section {
-  margin: 80px 0;
-  color: var(--off-white);
+/* UPDATES SECTION */
+.updates {
+  margin: 100px 0;
 }
 
-.updates-section .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+.updates .section-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   font-weight: 600;
   color: var(--white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .updates-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.8rem;
 }
 
-.update-item {
-  background: var(--medium-gray);
-  border-left: 4px solid var(--primary-red);
-  padding: 1rem 1.2rem;
-  border-radius: 8px;
+.update {
+  position: relative;
+  padding-left: 1.2rem;
 }
 
-.update-date {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 0.4rem;
+.update::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-red);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.update .date {
   display: block;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.3rem;
 }
 
-.update-item p {
+.update p {
   margin: 0;
-  font-size: clamp(0.9rem, 1vw, 1.1rem);
-  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.6;
 }
 
-.btn.view-all-updates {
+.updates-link {
   display: inline-block;
-  margin-top: 2rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--primary-red);
-  color: var(--white);
-  border-radius: 6px;
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: var(--primary-red);
   text-decoration: none;
   font-weight: 500;
-  transition: background 0.3s ease;
 }
 
-.btn.view-all-updates:hover {
-  background: #b91c1c; /* or adjust to match your palette */
+.updates-link:hover {
+  text-decoration: underline;
 }
+
 
 /* ================= ANIMATIONS ================= */
 @keyframes title-reveal {
@@ -1004,37 +1012,38 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
   </div>
 </main>
 
-    <section id="updates" class="section updates-section">
-  <div class="container">
-    <h2 class="section-title">Updates</h2>
-    <div class="updates-list">
-
-      <div class="update-item">
-        <span class="update-date">Sep 5, 2025</span>
-        <p>
-          Published a post about “Deploying the LLM Privacy Report” on LinkedIn to share findings on data handling practices.
-        </p>
-      </div>
-
-      <div class="update-item">
-        <span class="update-date">Aug 20, 2025</span>
-        <p>
-          Shared initial progress of the “Web Crawler with Keyword Count Tracking” project with data visualizations.
-        </p>
-      </div>
-
-      <div class="update-item">
-        <span class="update-date">Jul 30, 2025</span>
-        <p>
-          Announced new version of Sano gym app with improved UI and community features.
-        </p>
-      </div>
-
-      <!-- more updates... -->
-
-    </div>
-    <a href="https://www.linkedin.com/in/yourusername/" class="btn view-all-updates" target="_blank">View All Updates on LinkedIn</a>
-  </div>
+<section id="updates">
+  <h2>updates</h2>
+  <ul>
+    <li>
+      <span class="date">May 2025</span>
+      <p>Started my final internship 🎉 — joining <strong>Amazon</strong> in Sunnyvale to work on the <em>Items & Offers Platform</em>.</p>
+    </li>
+    <li>
+      <span class="date">Nov 2023</span>
+      <p>Dove into part-time work at <strong>Transformation CONTINUUM</strong> 🚀 building a <em>Google Cloud Sales Training Tool</em>.</p>
+    </li>
+    <li>
+      <span class="date">Jan 2023</span>
+      <p>Joined Georgia Tech’s <strong>LIDAR lab 🤖</strong> — working on reinforcement learning pipelines & bipedal navigation research.</p>
+    </li>
+    <li>
+      <span class="date">Jun 2022</span>
+      <p>Spent my summer at <strong>Berry College</strong> 🧮 exploring continued fractions & fractals in math research.</p>
+    </li>
+    <li>
+      <span class="date">May 2021</span>
+      <p>Did my first biology research 👩‍🔬 — summer at <strong>Emory</strong>’s Liang Lab on RSV minigenomes.</p>
+    </li>
+    <li>
+      <span class="date">May 2021</span>
+      <p>Started at the <strong>Neural Data Science Lab</strong> 🧠 — applying ML to detect Alzheimer’s in mouse brains.</p>
+    </li>
+    <li>
+      <span class="date">Aug 2020</span>
+      <p>Started university at <strong>Georgia Tech</strong> 🐝 pursuing HCI + ML!</p>
+    </li>
+  </ul>
 </section>
 
     
