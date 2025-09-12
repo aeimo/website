@@ -174,9 +174,18 @@
 .hero-text {
   flex: 2 1 500px;
 }
-
 /* ================= HERO TEXT ================= */
-.hero-text h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--white); margin: 0 0 12px 0; position: relative; opacity: 0; animation: title-reveal 2s ease-out 0.5s forwards; }
+.hero-text h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 12px 0;
+  position: relative;
+  opacity: 0;
+  animation: title-reveal 2s ease-out 0.5s forwards;
+}
+
 .hero-text .chinese {
   color: #777;
   font-weight: normal;
@@ -194,11 +203,25 @@
 
 .hero-text p {
   font-family: 'JetBrains Mono', monospace; /* matches headings */
-  font-size: clamp(0.95rem, 1vw, 1.1rem);  /* readable and slightly techy */
-  line-height: 1.7;                         /* airy, modern spacing */
+  font-size: clamp(0.95rem, 1vw, 1.1rem);   /* readable and slightly techy */
+  line-height: 1.7;                          /* airy, modern spacing */
   margin: 0.8rem 0;
-  color: rgba(255, 255, 255, 0.85);         /* softer off-white for contrast */
+  color: rgba(255, 255, 255, 0.85);          /* softer off-white for contrast */
   letter-spacing: 0.5px;                     /* subtle spacing for clarity */
+}
+
+/* Inline links inside hero text */
+.hero-text a {
+  color: var(--primary-red);                 /* accent color for links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3); /* subtle underline */
+}
+
+.hero-text a:hover {
+  color: #ff4d4d;                            /* brighter hover effect */
+  border-bottom: 1px solid var(--primary-red);
 }
 
 .hero-tags {
@@ -888,8 +911,7 @@
   <a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology</a> 
   studying <strong>Human-Computer Interaction</strong> and <strong>Machine Learning</strong>.  
   My interests include   <a href="https://arithmetic.zetamac.com/
-" target="_blank">Mathematics</a>,  
-, <strong>computer vision</strong>, and 
+" target="_blank">Mathematics</a>, <strong>computer vision</strong>, and 
   building technologies that make fitness safer and more social.
 </p>
 <p>
@@ -906,9 +928,9 @@
 </p>
 
 <p>
-  Outside of work, you’ll find me playing    <a href="https://youtu.be/27wfm9HKLXA?t=768" target="_blank"> violin </a> , piano, or pickleball — and I love all kinds of media, <a href="https://open.spotify.com/user/hy7kby3jcj8yxq0aoeq4clku1?si=4fd9a7b61d6748a8
-" target="_blank"> music </a>   
-  from <a href=" https://youtu.be/983bBbJx0Mk?list=RD983bBbJx0Mk&t=23" target="_blank"> kdramas </a> and <a href=" https://myanimelist.net/profile/jmscn8" target="_blank"> anime </a> to TV and manga.
+  Outside of work, you’ll find me playing  <a href="https://youtu.be/27wfm9HKLXA?t=768" target="_blank"> violin </a> , piano, or pickleball — and I love all kinds of media, <a href="https://open.spotify.com/user/hy7kby3jcj8yxq0aoeq4clku1?si=4fd9a7b61d6748a8
+" target="_blank">music</a>   
+  from <a href=" https://youtu.be/983bBbJx0Mk?list=RD983bBbJx0Mk&t=23" target="_blank">kdramas</a> and <a href=" https://myanimelist.net/profile/jmscn8" target="_blank">anime</a> to TV and manga.
 </p>
 
       <p>
