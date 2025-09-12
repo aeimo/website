@@ -242,67 +242,50 @@
   color: var(--primary-red);
 }
 
-/* UPDATES SECTION */
-.updates {
-  margin: 100px 0;
+
+<style>
+/* --- Updates Section --- */
+#updates {
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  font-family: "Inter", sans-serif;
 }
 
-.updates .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+#updates h2 {
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--white);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
 }
 
-.updates-list {
+#updates ul {
   list-style: none;
-  margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-}
-
-.update {
-  position: relative;
-  padding-left: 1.2rem;
-}
-
-.update::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--primary-red);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.update .date {
-  display: block;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 0.3rem;
-}
-
-.update p {
   margin: 0;
-  color: rgba(255,255,255,0.9);
-  font-size: clamp(0.9rem, 1vw, 1rem);
-  line-height: 1.6;
 }
 
-.updates-link {
-  display: inline-block;
-  margin-top: 2.5rem;
-  font-size: 0.95rem;
-  color: var(--primary-red);
-  text-decoration: none;
+#updates li {
+  margin-bottom: 1.5rem;
+}
+
+#updates .date {
+  display: block;
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.2rem;
   font-weight: 500;
 }
 
-.updates-link:hover {
-  text-decoration: underline;
+#updates p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #222;
 }
+</style>
 
 
 /* ================= ANIMATIONS ================= */
