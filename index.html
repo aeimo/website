@@ -241,16 +241,14 @@
 .hero-links a:hover {
   color: var(--primary-red);
 }
-/* Container for the updates section */
-.updates {
+/* Container for the updates section */.updates {
   max-width: 800px;
   margin: 4rem auto;
-  padding-left: 2rem;
+  padding-left: 1rem;
   text-align: left;
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Title styling */
 .updates h2 {
   font-size: 2.4rem;
   font-weight: 600;
@@ -258,42 +256,37 @@
   margin-bottom: 2rem;
 }
 
-/* List styling */
 .updates-list {
   list-style: none;
-  margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1.5rem;
-  align-items: center;
+  margin: 0;
 }
 
-/* Individual update styling */
 .update {
-  display: contents;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
 }
 
-/* Date styling */
 .update .date {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+  width: 100px; /* keeps dates aligned */
   text-align: right;
-  margin-right: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
 }
 
-/* Content styling */
 .update p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* Show more link styling */
 .updates-link {
   display: inline-block;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   font-size: 1rem;
   color: var(--primary-red);
   text-decoration: none;
