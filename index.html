@@ -1295,25 +1295,23 @@ You can find more information in my <a href="resume (5).pdf" target="_blank">CV<
             rootMargin: '0px 0px -100px 0px'
         };
         document.addEventListener("DOMContentLoaded", () => {
- document.addEventListener('DOMContentLoaded', () => {
-  const updates = document.querySelectorAll('.update');
-  const showMoreLink = document.querySelector('.updates-link');
+  const updates = document.querySelectorAll(".updates-list .update");
+  const showMoreBtn = document.getElementById("show-more");
+  let visibleCount = 3;
 
-  // Show only first 3 updates initially
-  updates.forEach((update, index) => {
-    if (index >= 3) update.style.display = 'none';
+  // Show first 3
+  updates.forEach((item, index) => {
+    if (index < visibleCount) item.style.display = "block";
   });
 
-  // Toggle show more / show less
-  showMoreLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isShowingAll = showMoreLink.textContent === 'Show more';
-
-    updates.forEach((update, index) => {
-      if (index >= 3) update.style.display = isShowingAll ? 'flex' : 'none';
+  showMoreBtn.addEventListener("click", () => {
+    visibleCount += 3;
+    updates.forEach((item, index) => {
+      if (index < visibleCount) item.style.display = "block";
     });
-
-    showMoreLink.textContent = isShowingAll ? 'Show less' : 'Show more';
+    if (visibleCount >= updates.length) {
+      showMoreBtn.style.display = "none"; // hide button when done
+    }
   });
 });
 
